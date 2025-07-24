@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Appointment</title>
+</head>
+<body>
+    <h2>Book a Doctor's Appointment</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book Now</button>
+    </form>
+
+    <a href="{% url 'doctor_list' %}">🔙 Back to Doctors</a>
+</body>
+</html>

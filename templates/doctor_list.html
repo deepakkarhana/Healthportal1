@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Find Doctors</title>
+</head>
+<body>
+    <h2>Available Doctors</h2>
+
+    <form method="get">
+        <input type="text" name="q" placeholder="Search by name or specialization">
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% for doctor in doctors %}
+            <li>
+                <a href="{% url 'doctor_detail' doctor.id %}">
+                    {{ doctor.name }} - {{ doctor.specialization }}
+                </a>
+            </li>
+        {% empty %}
+            <li>No doctors found.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'home' %}">🏠 Back to Home</a>
+</body>
+</html>
